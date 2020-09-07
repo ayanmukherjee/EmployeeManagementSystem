@@ -3,7 +3,7 @@ package com.socgen.ems.department.data;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "Department for employee is mandatory. The list of departments can be fetched from /departments")
+@ApiModel(description = "Department for employee is mandatory. The list of departments can be fetched from /departments/")
 public class DepartmentPayload {
 	
 	@ApiModelProperty(required = true, notes = "Department Id", example = "1")

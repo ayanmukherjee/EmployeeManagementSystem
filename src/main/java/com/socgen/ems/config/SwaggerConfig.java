@@ -26,7 +26,7 @@ public class SwaggerConfig {
 
 	private ApiInfo createApiInfo() {
 		return new ApiInfo("Employee Management System", "Employee Management System is a service that enables you to create an employee, fetch employee details and show the list of employees in the system.", 
-					"1.0", ApiInfo.DEFAULT.getTermsOfServiceUrl(), 
+					"1.0", null, 
 					new Contact("Ayan Mukherjee", "https://www.linkedin.com/in/ayanmukherjee8/", "ayan.mukherjee22@gmail.com"), 
 					ApiInfo.DEFAULT.getLicense(), ApiInfo.DEFAULT.getLicenseUrl(), Collections.emptyList());
 	}
