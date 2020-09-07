@@ -15,26 +15,26 @@ public class EmployeePayload {
 	
 	private Long id;
 
-	@ApiModelProperty(value = "First name of the employee is mandatory and should be between 1-25 characters", example = "George")
+	@ApiModelProperty(required = true, notes = "First name of the employee is mandatory and should be between 1-25 characters", example = "George")
 	@NotNull(message = "First name cannot be null")
 	@Size(min = 1, max = 25, message = "First name should be between 1-25 characters")
 	private String firstName;
 	
-	@ApiModelProperty(value = "Last name of the employee is mandatory and should be between 1-25 characters", example = "Michael")
+	@ApiModelProperty(required = true, notes = "Last name of the employee is mandatory and should be between 1-25 characters", example = "Michael")
 	@NotNull(message = "Last name cannot be null")
 	@Size(min = 1, max = 25, message = "Last name should be between 1-25 characters")
 	private String lastName;
 	
-	@ApiModelProperty(value = "Gender of the employee is mandatory and should be MALE, FEMALE or OTHER", example = "MALE")
+	@ApiModelProperty(required = true, notes = "Gender of the employee is mandatory and should be MALE, FEMALE or OTHER", allowableValues = "MALE, FEMALE, OTHER", example = "MALE")
 	@GenderValid
 	private String gender;
 	
-	@ApiModelProperty(value = "Date of Birth of the employee is mandatory and should be in yyyy-MM-dd format", example = "2019-12-31")
+	@ApiModelProperty(required = true, notes = "Date of Birth of the employee is mandatory and should be in yyyy-MM-dd format", example = "2019-12-31")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@DateOfBirthValid
 	private String dateOfBirth;
 	
-	@ApiModelProperty(value = "Department of the employee is mandatory. The list of departments can be fetched from /departments", example = "{ \"id\": \"1\", \"name\": \"Finance\"}")
+	@ApiModelProperty(required = true)
 	@DepartmentValid
 	private DepartmentPayload department;
 	

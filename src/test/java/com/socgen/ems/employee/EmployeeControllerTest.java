@@ -1,7 +1,6 @@
 package com.socgen.ems.employee;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +21,7 @@ import com.socgen.ems.department.data.DepartmentPayload;
 import com.socgen.ems.employee.data.EmployeePayload;
 
 @WebMvcTest(value = EmployeeController.class)
+@SuppressWarnings("unchecked")
 public class EmployeeControllerTest extends BaseControllerTest {
 	
 	@MockBean
@@ -96,7 +96,7 @@ public class EmployeeControllerTest extends BaseControllerTest {
 
 		MockHttpServletResponse response = executePostRequest("/employees/", mapToJSON(mockEmployee));
 		
-		Map<String, String> errors = mapFromJSON(response.getContentAsString(), new HashMap<String, String>().getClass());
+		Map<String, String> errors = mapFromJSON(response.getContentAsString(), Map.class);
 		
 		Assert.assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatus());
 		Assert.assertEquals(errors.get("firstName"), "First name cannot be null");
@@ -125,7 +125,7 @@ public class EmployeeControllerTest extends BaseControllerTest {
 
 		MockHttpServletResponse response = executePostRequest("/employees/", mapToJSON(mockEmployee));
 		
-		Map<String, String> errors = mapFromJSON(response.getContentAsString(), new HashMap<String, String>().getClass());
+		Map<String, String> errors = mapFromJSON(response.getContentAsString(), Map.class);
 		
 		Assert.assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatus());
 		Assert.assertEquals(errors.get("firstName"), "First name should be between 1-25 characters");
@@ -150,7 +150,7 @@ public class EmployeeControllerTest extends BaseControllerTest {
 
 		MockHttpServletResponse response = executePostRequest("/employees/", mapToJSON(mockEmployee));
 		
-		Map<String, String> errors = mapFromJSON(response.getContentAsString(), new HashMap<String, String>().getClass());
+		Map<String, String> errors = mapFromJSON(response.getContentAsString(), Map.class);
 		
 		Assert.assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatus());
 		Assert.assertEquals(errors.get("firstName"), "First name should be between 1-25 characters");

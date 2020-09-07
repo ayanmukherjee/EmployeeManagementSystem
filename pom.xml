@@ -10,10 +10,10 @@
 	</parent>
 	<groupId>com.socgen</groupId>
 	<artifactId>ems</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
+	<packaging>war</packaging>
 	<name>Employee Management System</name>
-	<description>Employee Management System is used to add employees and display the list of employees</description>
-
+	<description>Employee Management System is a service that enables you to create an employee, fetch employee details and show the list of employees in the system.</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -57,6 +57,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -66,6 +67,13 @@
 			    <groupId>org.jacoco</groupId>
 			    <artifactId>jacoco-maven-plugin</artifactId>
 			    <version>0.7.7.201606060606</version>
+			    <configuration>
+			        <excludes>
+				        <exclude>**/*Mapper.*</exclude>
+				        <exclude>**/data/*</exclude>
+				        <exclude>**/constants/*</exclude>
+				    </excludes>
+			    </configuration>
 			    <executions>
 			        <execution>
 			            <goals>
